@@ -1,0 +1,21 @@
+server:
+  port: 8005
+spring:
+  application:
+    name: cloud-payment-service
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+    url: jdbc:mysql://localhost:3306/demo
+    username: root
+    password: 123456
+  cloud:
+    zookeeper:
+      connect-string: localhost:2181
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true
+    cache-enabled: false
+logging:
+  level:
+    com.demo.dao: debug

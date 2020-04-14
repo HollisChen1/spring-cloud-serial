@@ -1,15 +1,13 @@
 package com.demo;
 
-import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
 @SpringBootApplication
-@MapperScan(basePackages = {"com.demo.dao"})
 @EnableDiscoveryClient
-public class Payment8001 {
+public class Payment8005 {
     public static void main(String[] args) {
-        SpringApplication.run(Payment8001.class, args);
+        SpringApplication.run(Payment8005.class, args);
     }
 }

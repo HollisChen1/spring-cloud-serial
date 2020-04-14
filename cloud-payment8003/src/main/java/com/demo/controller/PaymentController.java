@@ -17,7 +17,7 @@ public class PaymentController {
     private PaymentService paymentService;
 
     @Value("${server.port}")
-    private String serverPort;
+    private Integer serverPort;
 
     @GetMapping("/{id}")
     public ApiResult<Payment> get(@PathVariable() Integer id){
@@ -29,6 +29,11 @@ public class PaymentController {
         log.info("当前服务端口：{}", serverPort);
         paymentService.create(payment);
         return ApiResult.success(payment.getId());
+    }
+
+    @GetMapping("/port")
+    public ApiResult<Integer> create(){
+        return ApiResult.success(serverPort);
     }
 
 }

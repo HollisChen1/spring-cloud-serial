@@ -12,6 +12,8 @@
         <module>cloud-eureka-server7002</module>
         <module>cloud-payment8001</module>
         <module>cloud-common</module>
+        <module>cloud-order-service80</module>
+        <module>cloud-payment8003</module>
     </modules>
 
     <packaging>pom</packaging>
@@ -91,5 +93,19 @@
 
         </dependencies>
     </dependencyManagement>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.1</version>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 
 </project>

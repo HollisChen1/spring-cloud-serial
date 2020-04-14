@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>cloud-payment8001</artifactId>
+    <artifactId>cloud-order-service80</artifactId>
 
     <dependencies>
         <dependency>
@@ -24,29 +24,13 @@
         </dependency>
 
         <dependency>
-            <groupId>com.demo</groupId>
-            <artifactId>cloud-common</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-            <scope>runtime</scope>
-        </dependency>
-
-        <dependency>
-            <groupId>com.alibaba</groupId>
-            <artifactId>druid</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>org.mybatis.spring.boot</groupId>
-            <artifactId>mybatis-spring-boot-starter</artifactId>
-        </dependency>
-
-        <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.demo</groupId>
+            <artifactId>cloud-common</artifactId>
         </dependency>
 
         <dependency>

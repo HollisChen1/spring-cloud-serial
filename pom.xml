@@ -15,6 +15,9 @@
         <module>cloud-order-service80</module>
         <module>cloud-payment8003</module>
         <module>cloud-payment8005</module>
+        <module>cloud-order-service-zk80</module>
+        <module>cloud-payment_consul8007</module>
+        <module>cloud-order-service-consul80</module>
     </modules>
 
     <packaging>pom</packaging>

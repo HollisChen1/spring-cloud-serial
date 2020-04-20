@@ -15,7 +15,7 @@ import java.util.concurrent.atomic.AtomicInteger;
  * @author: chenhao
  * @date: 2020/4/20 22:04
  */
-@Component
+//@Component
 public class MyLoadBalancer extends AbstractLoadBalancer {
     private AtomicInteger atomicInteger = new AtomicInteger(0);
 
@@ -24,8 +24,8 @@ public class MyLoadBalancer extends AbstractLoadBalancer {
         int next;
         do {
             current = this.atomicInteger.get();
-            next = current >= Integer.MAX_VALUE ? 0 : current++;
-        } while (!atomicInteger.compareAndSet(next, current));
+            next = current >= Integer.MAX_VALUE ? 0 : current + 1;
+        } while (!atomicInteger.compareAndSet(current, next));
         return next;
     }
 

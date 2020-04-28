@@ -9,3 +9,18 @@ eureka:
       defaultZone: http://eureka7001.com:7001/eureka/,http://eureka7002.com:7002/eureka/
     register-with-eureka: false
     fetch-registry: true
+#ribbon:
+#  ConnectTimeout: 5000
+#  ReadTimeout: 20000
+
+logging:
+  level:
+    com.demo.service.PaymentFeignService: debug
+feign:
+  hystrix:
+    enabled: true
+  client:
+    config:
+      default:
+        connect-timeout: 5000
+        read-timeout: 20000

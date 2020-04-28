@@ -3,6 +3,7 @@ package com.demo.controller;
 import com.demo.base.ApiResult;
 import com.demo.domain.Payment;
 import com.demo.service.PaymentService;
+import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -34,6 +35,11 @@ public class PaymentController {
     @GetMapping("/port")
     public ApiResult<Integer> create(){
         return ApiResult.success(serverPort);
+    }
+
+    @GetMapping("/timeout")
+    public ApiResult<String> timeout(@RequestParam("id") Integer id){
+        return ApiResult.success(paymentService.paymentInfo_TimeOut(id));
     }
 
 }

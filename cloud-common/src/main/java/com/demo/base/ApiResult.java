@@ -34,4 +34,8 @@ public class ApiResult<T> {
                 .setMsg(resultEnum.getMsg());
     }
 
+    public static ApiResult<Void> error(String msg){
+        return fromEnum(ApiResultEnum.SYSTEM_ERROR).setMsg(msg);
+    }
+
 }

@@ -3,12 +3,12 @@ package com.demo.controller;
 import com.demo.base.ApiResult;
 import com.demo.domain.Payment;
 import com.demo.service.PaymentFeignService;
+import com.netflix.hystrix.contrib.javanica.annotation.DefaultProperties;
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixProperty;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * <p>
@@ -22,6 +22,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @Slf4j
 @RequestMapping("/order")
+@DefaultProperties(defaultFallback = "")
 public class OrderController {
 
     @Autowired
@@ -35,4 +36,21 @@ public class OrderController {
         return paymentFeignService.create(param);
     }
 
+    @GetMapping("/consumer/timeout")
+//    @HystrixCommand(fallbackMethod = "timeoutFallback" ,
+//    commandProperties = {
+//            @HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds", value = "4000")
+//    })
+    public ApiResult<String> timeout(@RequestParam() Integer id){
+        return paymentFeignService.timeout(id);
+    }
+
+
+    public ApiResult<String> timeoutFallback(Integer id){
+        return ApiResult.success("客户端降级处理");
+    }
+
+    public ApiResult defaultFallback(){
+        return ApiResult.success("全局降级方法");
+    }
 }

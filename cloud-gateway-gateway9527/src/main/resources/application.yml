@@ -1,0 +1,26 @@
+server:
+  port: 9527
+spring:
+  application:
+    name: cloud-gateway
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true #开启从注册中心动态创建路由的功能，利用微服务名称进行路由
+      routes:
+      - id: baidu #路由ID 要求唯一
+        uri: http://news.baidu.com/guonei #路由匹配成功访问地址
+        predicates:
+          - Path=/guonei
+
+
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka7001.com:7001/eureka/,http://eureka7002.com:7002/eureka/
+    register-with-eureka: true
+    fetch-registry: true
+  instance:
+    hostname: cloud-gateway-service

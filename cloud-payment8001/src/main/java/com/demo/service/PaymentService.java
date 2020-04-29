@@ -4,6 +4,7 @@ import com.demo.dao.PaymentMapper;
 import com.demo.domain.Payment;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixProperty;
+import lombok.Setter;
 import lombok.SneakyThrows;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,8 +14,11 @@ import java.util.concurrent.TimeUnit;
 @Service
 public class PaymentService {
 
-    @Autowired
     private PaymentMapper paymentMapper;
+
+    public void setPaymentMapper(@Autowired PaymentMapper paymentMapper) {
+        this.paymentMapper = paymentMapper;
+    }
 
     public Integer create(Payment payment) {
         return paymentMapper.create(payment);

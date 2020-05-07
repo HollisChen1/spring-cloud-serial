@@ -1,0 +1,13 @@
+#bootstrap配置文件的优先级高于application
+spring:
+  cloud:
+    nacos:
+      config:
+        server-addr: localhost:8848
+        file-extension: yaml
+  application:
+    name: cloud-alibaba-provider-payment
+  profiles:
+    active: dev
+#nacos config dataId
+# ${prefix}-${spring.profile.active}.${file-extension}
